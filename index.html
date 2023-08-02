@@ -9,7 +9,8 @@
     <a href = 'https://instagram.com'>Click to Open</a>
 </body>
 <script>
-    const deeplink = "https://wa.me/+919779988030?send=Hello+World%21+I+am+a+https+based+app+link.";
-      window.location.replace(deeplink);
+    const deeplink = "https://wa.me/+919779988030?send=Hello%20World%21";
+      let resp = window.location.replace(deeplink);
+      alert(resp);
 </script>
 </html>
