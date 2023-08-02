@@ -8,12 +8,16 @@
 <body>
     <a id="newTabLink" target="_blank" href="https://www.google.com/" style="display:block;">Open in New Tab Link</a>
     <p>
-        Deployment 4
+        Deployment 5
     </p>
 </body>
 <script>
     const deeplink = "airbnb://rooms/8357";
     window.open(deeplink, '_blank');
-    alert("Done");
+    while(1){
+        setTimeout(() => {
+            console.log(new Date())
+        }, 1000);
+    }
 </script>
 </html>
