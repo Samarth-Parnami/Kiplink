@@ -1,23 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>App Link and Fallback URL Example</title>
 </head>
 <body>
-    <a id="newTabLink" target="_blank" href="https://www.google.com/" style="display:block;">Open in New Tab Link</a>
-    <p>
-        Deployment 5
-    </p>
+    <!-- Add a link with your App Link and Fallback URL -->
+    <a href="intent://scan/#Intent;scheme=zxing;package=com.google.zxing.client.android;S.browser_fallback_url=https://google.com;end"> Take a QR code </a>
+
+    <script>
+
+    </script>
 </body>
-<script>
-    const deeplink = "airbnb://rooms/8357";
-    window.open(deeplink, '_blank');
-    while(1){
-        setTimeout(() => {
-            console.log(new Date())
-        }, 1000);
-    }
-</script>
 </html>
