@@ -4,11 +4,25 @@
     <title>App Link and Fallback URL Example</title>
 </head>
 <body>
-    <!-- Add a link with your App Link and Fallback URL -->
-    <a href="intent://send/#Intent;scheme=whatsapp;package=com.whatsapp;action=send;S.browser_fallback_url=https://google.com;end"> Open WhatsApp</a>
-
+    
     <script>
-
+        var deeplinkUrl = `whatsapp://send?phone=+919779988030`;
+        //variable will check app installed or not
+        var change = false;
+        setTimeout(() => {
+        if (!change) {
+            var redirectUrl = "https://google.com";
+            window.location = redirectUrl;
+        }
+        }, 100);
+        window.location = deeplinkUrl;
+        //handle event to check app installed or not
+        window.onblur = function () {
+            change = true;
+        };
+        window.onfocus = function(){
+            change = false;
+        }
     </script>
 </body>
 </html>
