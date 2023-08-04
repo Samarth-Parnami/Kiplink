@@ -6,7 +6,7 @@
 <body>
     
     <script>
-        var deeplinkUrl = `whhatsapp://send?phone=+919779988030`;
+        var deeplinkUrl = `whatsapp://send?phone=+919779988030`;
         //variable will check app installed or not
         var change = false;
         setTimeout(() => {
@@ -14,7 +14,7 @@
             var redirectUrl = "https://google.com";
             window.location = redirectUrl;
         }
-        }, 2000);
+        }, 500);
         window.location = deeplinkUrl;
         //handle event to check app installed or not
         window.onblur = function () {
