@@ -10,6 +10,15 @@
         var change = false;
         var time = new Date()
 
+        var windowName = 'userConsole'; 
+        var popUp = window.open(deeplinkUrl, windowName, 'width=1000, height=700, left=24, top=24, scrollbars, resizable');
+        if (popUp == null || typeof(popUp)=='undefined') { 	
+            alert('Please disable your pop-up blocker and click the "Open" link again.'); 
+        } 
+        else { 	
+            popUp.focus();
+        }
+
         let cron = setInterval(() => {
         console.log("inside interval")
         if (!change && (new Date() - time) < 4000 ) {
@@ -19,7 +28,7 @@
         else if((new Date() - time) > 4000 ){
             clearInterval(cron);
         }
-        }, 1000);
+        }, 10000);
         window.location = deeplinkUrl;
         //handle event to check app installed or not
         window.onblur = function () {
