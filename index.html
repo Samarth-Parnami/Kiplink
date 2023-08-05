@@ -4,17 +4,22 @@
     <title>App Link and Fallback URL Example</title>
 </head>
 <body>
-    
     <script>
         var deeplinkUrl = `whatsapp://send?phone=+919779988030`;
         //variable will check app installed or not
         var change = false;
-        setTimeout(() => {
-        if (!change) {
+        var time = new Date()
+
+        let cron = setInterval(() => {
+        console.log("inside interval")
+        if (!change && (new Date() - time) < 4000 ) {
             var redirectUrl = "https://google.com";
             window.location = redirectUrl;
         }
-        }, 500);
+        else if((new Date() - time) > 4000 ){
+            clearInterval(cron);
+        }
+        }, 1000);
         window.location = deeplinkUrl;
         //handle event to check app installed or not
         window.onblur = function () {
