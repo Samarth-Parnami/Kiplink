@@ -10,12 +10,13 @@
         var change = false;
         var time = new Date()
 
-        var windowName = '_self'; 
-        var popUp = window.open(deeplinkUrl, windowName, 'width=1000, height=700, left=24, top=24, scrollbars, resizable');
+        var popUp = window.open(deeplinkUrl, '_self');
         if (popUp == null || typeof(popUp)=='undefined') { 	
+            console.log("here")
             alert('Please disable your pop-up blocker and click the "Open" link again.'); 
         } 
         else { 	
+            console.log("otherwise")
             popUp.focus();
         }
 
@@ -28,7 +29,7 @@
         else if((new Date() - time) > 4000 ){
             clearInterval(cron);
         }
-        }, 10000);
+        }, 1000);
         window.location = deeplinkUrl;
         //handle event to check app installed or not
         window.onblur = function () {
