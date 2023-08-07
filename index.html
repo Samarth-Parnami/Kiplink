@@ -4,40 +4,63 @@
     <title>App Link and Fallback URL Example</title>
 </head>
 <body>
+    <a href="intent://send?phone=+919779988030#Intent;scheme=whatsapp;S.browser_fallback_url=https%3A%2F%2Fgithub.com;end">Tap me to launch directly into the Android app</a>
     <script>
-        var deeplinkUrl = `whatsapp://send?phone=+919779988030`;
-        //variable will check app installed or not
-        var change = false;
-        var time = new Date()
-
-        var popUp = window.open(deeplinkUrl, '_self');
-        if (popUp == null || typeof(popUp)=='undefined') { 	
-            console.log("here")
-            alert('Please disable your pop-up blocker and click the "Open" link again.'); 
-        } 
-        else { 	
-            console.log("otherwise")
-            popUp.focus();
-        }
-
-        let cron = setInterval(() => {
-        console.log("inside interval")
-        if (!change && (new Date() - time) < 4000 ) {
-            var redirectUrl = "https://google.com";
-            window.location = redirectUrl;
-        }
-        else if((new Date() - time) > 4000 ){
-            clearInterval(cron);
-        }
-        }, 1000);
-        window.location = deeplinkUrl;
-        //handle event to check app installed or not
-        window.onblur = function () {
-            change = true;
-        };
-        window.onfocus = function(){
-            change = false;
-        }
+        // var deeplinkUrl = "whatsapp://send?phone=+919779988030";
+        // var redirectUrl = "https://google.com";
+    
+        // function openDeepLink() {
+        //     var newWindow = window.open(deeplinkUrl, "_self");
+        //     newWindow.error = function(){
+        //         console.log("error")
+        //     }
+        //     setTimeout(function() {
+        //         if (document.hidden) {
+        //             // Window lost focus, indicating that the app was opened
+        //             return;
+        //         }
+                
+        //         if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
+        //             // Deep link failed to open, redirect the user
+        //             window.location.href = redirectUrl;
+        //         }
+        //     }, 2000); // Adjust the timeout as needed
+        // }
+    
+        // openDeepLink();
+    </script>
+    
+    
+    <script>
+        // let newWindow = window.location.href = 'whatsapp://send?phone=+919779988030'
+        // var deeplinkUrl = `tel:+919779988030`;
+        // //variable will check app installed or not
+        // var change = false;
+        // var time = new Date()
+        // let console = window.console
+        // confirm("hello");
+        // console.log("\n\n\n\n\n\n\n\n\n\n\njijsdjjiajsdjjasdijaisjijiajsijdjasijdjajsdjajdjajsidiadjadjiajdiajdaijiajsdijasijdj")
+        // let cron = setInterval(() => {
+        // console.log("inside interval")
+        // if (!change && (new Date() - time) < 6000 ) {
+        //     console.log("redirected")
+        //     window.location.href = "https://google.com"
+        // }
+        // else if((new Date() - time) > 6000 ){
+        //     clearInterval(cron);
+        // }
+        // }, 2000);
+        // let newWindow = window.open(deeplinkUrl,"_self");
+        // //handle event to check app installed or not
+        
+        // window.onblur = function () {
+        //     console.log("blured")
+        //     change = true;
+        // };
+        // window.onfocus = function(){
+        //     console.log("focused")
+        //     change = false;
+        // }
     </script>
 </body>
 </html>
