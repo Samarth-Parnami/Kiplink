@@ -5,62 +5,50 @@
 </head>
 <body>
     <a href="intent://send?phone=+919779988030#Intent;scheme=whatsapp;S.browser_fallback_url=https%3A%2F%2Fgithub.com;end">Tap me to launch directly into the Android app</a>
-    <script>
-        // var deeplinkUrl = "whatsapp://send?phone=+919779988030";
-        // var redirectUrl = "https://google.com";
-    
-        // function openDeepLink() {
-        //     var newWindow = window.open(deeplinkUrl, "_self");
-        //     newWindow.error = function(){
-        //         console.log("error")
-        //     }
-        //     setTimeout(function() {
-        //         if (document.hidden) {
-        //             // Window lost focus, indicating that the app was opened
-        //             return;
-        //         }
-                
-        //         if (!newWindow || newWindow.closed || typeof newWindow.closed === "undefined") {
-        //             // Deep link failed to open, redirect the user
-        //             window.location.href = redirectUrl;
-        //         }
-        //     }, 2000); // Adjust the timeout as needed
-        // }
-    
-        // openDeepLink();
-    </script>
-    
+    <p>i</p>
+    <p>O</p>
+    <p>S</p>
+    <a href="#" onclick="doSomething()">Restart iThrown</a>
+    <!-- <script>
+        function startIThrown(){
+        document.location = 'tel:+919779988030';
+        console.log("here");
+        setTimeout(function(){
+            if(confirm('You do not seem to have iThrown installed, do you want to go download it now?')){
+            document.location = 'http://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=293049283&mt=8&uo=6';
+    }
+  }, 300);
+}
+    </script> -->
     
     <script>
-        // let newWindow = window.location.href = 'whatsapp://send?phone=+919779988030'
-        // var deeplinkUrl = `tel:+919779988030`;
-        // //variable will check app installed or not
-        // var change = false;
-        // var time = new Date()
-        // let console = window.console
-        // confirm("hello");
-        // console.log("\n\n\n\n\n\n\n\n\n\n\njijsdjjiajsdjjasdijaisjijiajsijdjasijdjajsdjajdjajsidiadjadjiajdiajdaijiajsdijasijdj")
-        // let cron = setInterval(() => {
-        // console.log("inside interval")
-        // if (!change && (new Date() - time) < 6000 ) {
-        //     console.log("redirected")
-        //     window.location.href = "https://google.com"
-        // }
-        // else if((new Date() - time) > 6000 ){
-        //     clearInterval(cron);
-        // }
-        // }, 2000);
-        // let newWindow = window.open(deeplinkUrl,"_self");
-        // //handle event to check app installed or not
+        function doSomething(){
+        var deeplinkUrl = 'whattsapp://send?phone=+919779988030';
+        //variable will check app installed or not
+        var change = false;
+        var time = new Date()
+        let cron = setInterval(() => {
+        console.log("inside interval")
+        if (!change && (new Date() - time) < 6000 ) {
+            console.log("redirected")
+            window.location.href = 'https://google.com'
+        }
+        else if((new Date() - time) > 6000 ){
+            clearInterval(cron);
+        }
+        }, 2000);
+        let newWindow = window.open(deeplinkUrl,"_self");
+        //handle event to check app installed or not
         
-        // window.onblur = function () {
-        //     console.log("blured")
-        //     change = true;
-        // };
-        // window.onfocus = function(){
-        //     console.log("focused")
-        //     change = false;
-        // }
+        window.onblur = function () {
+            console.log("blured")
+            change = true;
+        };
+        window.onfocus = function(){
+            console.log("focused")
+            change = false;
+        }
+    }
     </script>
 </body>
 </html>
