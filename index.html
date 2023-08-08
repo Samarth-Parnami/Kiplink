@@ -87,7 +87,7 @@
         this.destroy = bindEvents.bind(null, 'remove');
         this.openURL = function(url) {
             // it can take a while for the dialog to appear
-            var dialogTimeout = 500;
+            var dialogTimeout = 1500;
 
             setTimeout(function() {
             if (hasFocus && options.onIgnored) {
