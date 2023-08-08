@@ -4,7 +4,7 @@
     <title>App Link and Fallback URL Example</title>
 </head>
 <body>
-    <a href="intent://send?phone=+919779988030#Intent;scheme=whhatsapp;S.browser_fallback_url=https%3A%2F%2Fgithub.com;end">Tap me to launch directly into the Android app</a>
+    <a href="intent://send?phone=+919779988030#Intent;scheme=WHATSAPP;S.browser_fallback_url=https%3A%2F%2Fgithub.com;end">Tap me to launch directly into the Android app</a>
     <p>i</p>
     <p>O</p>
     <p>S</p>
@@ -115,8 +115,19 @@
             window.location.href = 'https://slack.com'
         },
 });
+var badLinker = new DeepLinker({
+        onIgnored: function() {
+            window.location.href = 'https://google.com'
+        },
+        onFallback: function() {
+            window.location.href = 'https://github.com'
+        },
+        onReturn: function() {
+            window.location.href = 'https://slack.com'
+        },
+});
 
-linker.openURL(url);
+badLinker.openURL(badURL7);
     </script>
 </body>
 </html>
