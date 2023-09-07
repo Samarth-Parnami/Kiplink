@@ -4,9 +4,17 @@
     <title>App Link and Fallback URL Example</title>
 </head>
 <body>
-    This page will fill your clipboard with 'This is the text to be copied'
+    <label for="deeplink">Deeplink</label>
+    <input type="text" name="deeplink" id="deeplink">
+    <button onclick="openDeeplink()">Open</button>
+    <iframe src="" style="display: none;" id ="deeplink_frame"></iframe>
     <script>
-       navigator.clipboard.writeText('This is the text to be copied');
+       function openDeeplink(){
+        let deeplink = document.getElementById('deeplink').value;
+        console.log(deeplink);
+        document.getElementById("deeplink_frame").src=deeplink;
+        window.open(deeplink);
+       }
     </script>
 </body>
 </html>
