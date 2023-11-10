@@ -5,10 +5,17 @@
 </head>
 <body>
 
-    <a href="https://google.com">Click here to redirect</a>
-   <script>
-
-    window.open('lyft://', target='_self')
+   <script language="Javascript" type="text/javascript">
+    let deeplink = "whatsapp://send?phone=+919779988030"
+    let redirect = "https://apps.apple.com/in/app/whatsapp-messenger/id310633997"
+   
+    window.open( deeplink, '_self');
+    setTimeout(()=>{
+        document.getElementById('hello').click()
+        window.location.replace(redirect);
+    }, 5000);
+        
+    
     
    </script>
 </body>
