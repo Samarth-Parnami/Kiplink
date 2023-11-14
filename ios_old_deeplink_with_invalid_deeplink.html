@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>(iOS) Old Deeplinks using delays</title>
+</head>
+<body>
+
+   <script language="Javascript" type="text/javascript">
+    let deeplink = "whatapp://send?phone=+919779988030"
+    let redirect = "https://apps.apple.com/in/app/whatsapp-messenger/id310633997"
+   
+    
+    window.open( deeplink, '_self');
+    setTimeout(()=>{
+            window.location.replace(redirect);
+    }, 3000);
+        
+    
+    
+   </script>
+</body>
+</html>

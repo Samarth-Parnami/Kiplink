@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>(iOS)Aware Deeplinks using PageVisibility API</title>
+</head>
+<body>
+
+   <script language="Javascript" type="text/javascript">
+    let deeplink = "whatapp://send?phone=+919779988030"
+    let redirect = "https://apps.apple.com/in/app/whatsapp-messenger/id310633997"
+   
+    let state = false;
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            console.log("hidden");
+            state = true;
+        } else {
+            console.log("visible");
+        }
+      });
+    if(!state){
+        console.log("opening deeplink");
+        window.open( deeplink, '_self');
+    }
+    setTimeout(()=>{
+        console.log("Trying to open applink");
+        if(!state){
+            console.log("Opening deeplink");
+            window.location.replace(redirect);
+        }
+    }, 3000);
+        
+    
+    
+   </script>
+</body>
+</html>
