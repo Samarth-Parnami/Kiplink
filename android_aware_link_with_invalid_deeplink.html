@@ -20,7 +20,10 @@
       });
     if(!state){
         console.log("opening deeplink");
-        window.open( deeplink, '_self');
+        
+        let anchor = document.createElement('a');
+        anchor.href = deeplink;
+        anchor.click();
     }
     setTimeout(()=>{
         console.log("Trying to open applink");
