@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>App Link and Fallback URL Example</title>
+    <title>App Link and Fallback URL PageVisibility API</title>
 </head>
 <body>
 
@@ -9,10 +9,25 @@
     let deeplink = "whatsapp://send?phone=+919779988030"
     let redirect = "https://apps.apple.com/in/app/whatsapp-messenger/id310633997"
    
+    let state = false;
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            console.log("hidden")
+          state = true;
+        } else {
+            console.log("visible")
+            window.location.replace(redirect);
+        }
+      });
+    console.log("opening deeplink")
     window.open( deeplink, '_self');
     setTimeout(()=>{
-        window.location.replace(redirect);
-    }, 5000);
+        console.log("Trying to open applink")
+        if(!state){
+            console.log("Opening deeplink")
+            window.location.replace(redirect);
+        }
+    }, 3000);
         
     
     
