@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>(Android) Old Deeplinks using delays</title>
+</head>
+<body>
+
+   <script language="Javascript" type="text/javascript">
+    let deeplink = "whatsapp://send?phone=+919779988030"
+    let redirect = "https://play.google.com/store/apps/details?id=com.whatsapp&hl=en&gl=US"
+   
+    
+    window.open( deeplink, '_self');
+    setTimeout(()=>{
+            window.location.replace(redirect);
+    }, 3000);
+        
+    
+    
+   </script>
+</body>
+</html>
