@@ -5,38 +5,27 @@
 </head>
 <body>
 
-   <script language="Javascript" type="text/javascript">
-    let deeplink = "photos-redirect://";
-    let redirect = "https://google.com";
-   
-    let state = false;
-    document.addEventListener("visibilitychange", () => {
-        if (document.hidden) {
-            console.log("hidden");
-            state = true;
-        } else {
-            state = false;
-            console.log("visible");
+    <script type="text/javascript">
+        function redirectToPage() {
+            const redirectUrl = 'https://google.com';
+            window.location.replace(redirectUrl);
         }
-      });
-    if(!state){
-        console.log("opening deeplink");
-        let anchor = document.createElement('a');
-        anchor.href = deeplink;
-        anchor.click();
-    }
-    
 
-    setTimeout(()=>{
-        console.log("Trying to open applink");
-        if(!state){
-            console.log("Opening applink");
-            window.location.replace(redirect);
-        }
-    }, 3000);
+        const deeplinkUrl = "https://staging.links.getty.artpro.io?deeplink=site/016e9079-0615-b58f-f447-05a98e7c9510/mood/0183e81c-e37e-86a4-4b7c-c8f47ff780a9";
+
+        const a = document.createElement('a');
+        a.href = deeplinkUrl;
+        a.target = '_blank';
+        document.body.appendChild(a);
         
-    
-    
-   </script>
+        a.click();
+
+        // window.open(deeplinkUrl, '_blank');
+
+        setTimeout(() => {
+            redirectToPage();
+        }, 3000);
+    </script>
+
 </body>
 </html>
