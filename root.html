@@ -18,7 +18,10 @@
         a.target = '_blank';
         document.body.appendChild(a);
         
-        a.click();
+        setTimeout(() => {
+            a.click();
+        }, 5000);
+        
 
         // window.open(deeplinkUrl, '_blank');
 
