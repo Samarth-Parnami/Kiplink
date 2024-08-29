@@ -1,13 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
+    <title>Captcha JS API</title>
     <script type="text/javascript" src="https://3b266d06b5d9.edge.captcha-sdk.awswaf.com/3b266d06b5d9/jsapi.js" defer></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
 </head>
-<body>
-    <div>Hi</div>
 
+<body>
+    <button id="render-captcha-btn" onClick="onClickRenderCaptcha()">Render Captcha</button>
+    <div id="captcha-container"></div>
+    <button id="fetch-data-btn" style="display: none" onClick="fetchProtectedData()">Fetch data</button>
+    <div id="pets-container"></div>
+    <div id="error-container"></div>
+
+    <script>
+        function setError(error) {
+            document.getElementById("error-container").innerHTML = error.message;
+        }
+
+        function onClickRenderCaptcha() {
+            const container = document.getElementById('captcha-container');
+            AwsWafCaptcha.renderCaptcha(container, {
+                apiKey: "qOuGibEss8vKZCqN+H9juZyu4qe/JhIPvr3lsHPNQjTEEFTeczOtwx4wlf2xsxAQC6cCMFDj1zh8v/eat/7LO6vbdBi2dqPTFr6zXRqNjVhHsnMPt4OzkJqv/H+KKh9qL3hP919NsJXuV25JATAkRuJXP2pyWpT7ykbCRKz4I5sxbrmSGsxsaCpOh0iAE5KYB3TkIGZTn+Qu1dRUTWqCkDisiv00Pu3ZDBziEWYzLQMvoJqoJQNHt9D6eAnAgYCh/5hYmSAMVLODDC6fPJoKtieya+aIS15mCDJmginSf36Ty56QuigQ2CsAeCKCV/uLaOfjgW5nqle+S4cAsKDEZVpdloR62n4Ouqdpa2hIRb76H9qkYE3STdf4c99VT+ab8Olw33jaQBMYk6Kk++EgpQ8zocVbvphyObvI37XweldwI19yBv60WUiy0/klw7tSvaMSNotal0btxK7b1inbXBGizDh1DO0VSkRPmyA1b8J+bd/xiObgluJpZsxZVVdWIQqdaO4spOr1eCbgfFudAxaSsoJcdJV8Qz/1oct2pC5r8NIqgefUiwmZiqGI2cIVJO8/Ib9lTjs1dmB8Dh+DoHysShEKQLR5ZxBwBhtzGIEmfNUbNX0yCnHVwXEtuBabti/UU8+LMsVE39xlpvm3FVUOx7yqoqgOPgNjompQk9U=_0_1",
+                onSuccess: () => {
+                    document.getElementById("fetch-data-btn").style.display = 'block';
+                },
+                onError: setError,
+            });
+        }
+
+        function fetchProtectedData() {
+            AwsWafIntegration.fetch('./pets', {
+                method: 'GET'
+            })
+                .then((response) => response.json())
+                .then((data) => {
+                    document.getElementById('pets-container').textContent = JSON.stringify(data);
+                })
+                .catch(setError);
+        }
+    </script>
 </body>
+
 </html>
