@@ -11,14 +11,14 @@
     <button id="trackEvent">Track Event</button>
     <script>
         document.getElementById('trackEvent').addEventListener('click', function() {
-            amplitude.getInstance().logEvent('Button Clicked', {
+            amplitude.logEvent('Button Clicked', {
                 button: 'Track Event'
             });
             console.log('Event tracked');
         });
 
         setTimeout(function() {
-            amplitude.getInstance().identify({
+            amplitude.identify({
                 user_id: '1',
                 user_properties: {
                     plan: 'premium',
