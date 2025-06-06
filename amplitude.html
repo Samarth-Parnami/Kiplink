@@ -9,6 +9,7 @@
 </head>
 <body>
     <button id="trackEvent">Track Event</button>
+    <button id="identify">Identify</button>
     <script>
         document.getElementById('trackEvent').addEventListener('click', function() {
             amplitude.logEvent('Button Clicked', {
@@ -16,16 +17,9 @@
             });
             console.log('Event tracked');
         });
-
-        setTimeout(function() {
-            amplitude.identify({
-                user_id: '1',
-                user_properties: {
-                    plan: 'premium',
-                    age: 30
-                }
-            });
-        }, 300000);
+        document.getElementById('identify').addEventListener('click', function() {
+            amplitude.setUserId('samarth.p@uniqode.com');
+        });
     </script>
     <h1>Amplitude Event Tracking Example</h1>
     
