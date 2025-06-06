@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amplitude</title>
+    <script src="https://cdn.amplitude.com/libs/analytics-browser-2.11.1-min.js.gz">
+    </script><script>window.amplitude.init('aa6f307123a8b118ae1cf97fb6605580');</script>
+</head>
+<body>
+    <button id="trackEvent">Track Event</button>
+    <script>
+        document.getElementById('trackEvent').addEventListener('click', function() {
+            amplitude.getInstance().logEvent('Button Clicked', {
+                button: 'Track Event'
+            });
+            console.log('Event tracked');
+        });
+
+        setTimeout(function() {
+            amplitude.getInstance().identify({
+                user_id: '1',
+                user_properties: {
+                    plan: 'premium',
+                    age: 30
+                }
+            });
+        }, 300000);
+    </script>
+    <h1>Amplitude Event Tracking Example</h1>
+    
+</body>
+</html>
